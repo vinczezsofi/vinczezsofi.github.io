@@ -1,0 +1,87 @@
+/*
+  HU: Minimalista, gyors, reszponzív stíluslap.
+  Színek: mélyzöld (#0B3B2E), élénk korall (#FF6B6B), törtfehér (#F8F9F9), grafit (#222).
+*/
+:root{
+  --bg:#F8F9F9; --text:#222; --muted:#5c5c5c; --brand:#0B3B2E; --accent:#FF6B6B; --card:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);}
+h1,h2,h3{font-family:Montserrat,Inter,system-ui,sans-serif;margin:0 0 .6rem 0;color:var(--brand)}
+.section{padding:64px 16px}
+.container{max-width:1100px;margin:0 auto}
+
+/* Navigáció */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 16px;position:sticky;top:0;background:rgba(248,249,249,.9);backdrop-filter:saturate(150%) blur(8px);z-index:20}
+.logo{font-weight:800;color:var(--brand);text-decoration:none}
+.menu{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+.menu a{color:var(--text);text-decoration:none;font-weight:600}
+.menu a:hover{color:var(--accent)}
+/* Mobil menü kapcsoló */
+.menu-button-container{display:none}
+#menu-toggle{display:none}
+@media (max-width: 820px){
+  .menu{position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px;display:none}
+  #menu-toggle:checked + .menu-button-container + .menu{display:flex}
+  .menu-button-container{display:block;cursor:pointer}
+  .menu-button, .menu-button::before, .menu-button::after{background:var(--text);height:2px;width:22px;display:block;position:relative;transition:.2s}
+  .menu-button::before,.menu-button::after{content:"";position:absolute;left:0}
+  .menu-button::before{top:-6px}
+  .menu-button::after{top:6px}
+}
+
+/* Hős szekció */
+.hero{position:relative;min-height:74vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;filter:brightness(.6)}
+.hero .hero-content{position:relative;z-index:1;color:#fff;padding:64px 16px}
+.hero h1{font-size:clamp(28px,5vw,46px);color:#fff}
+.hero h1 span{color:#cfe8e0}
+.hero p{max-width:680px;font-size:1.1rem}
+.cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;border:2px solid var(--accent);color:#fff;background:var(--accent);padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.small{font-size:.95rem}
+.btn.primary{background:var(--accent);border-color:var(--accent)}
+
+/* Rólam */
+.grid.two{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+@media (max-width: 920px){.grid.two{grid-template-columns:1fr}}
+.portrait img{width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:16px 0 0 0;list-style:none}
+.badges li{background:#e8f3ef;color:var(--brand);border:1px solid #cfe8e0;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem}
+
+/* Kártyák */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+@media (max-width: 1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 640px){.cards{grid-template-columns:1fr}}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.06);border:1px solid #eee}
+.card .price{font-weight:800;color:var(--accent);margin:.3rem 0 1rem 0}
+.card ul{margin:0 0 16px 18px}
+
+.note{color:var(--muted);font-size:.95rem;margin-top:10px}
+
+/* Lépések */
+.steps{display:grid;gap:8px;margin-top:10px}
+.steps li{background:#fff;padding:12px;border-left:4px solid var(--brand);border-radius:8px;border-right:1px solid #eee;border-top:1px solid #eee;border-bottom:1px solid #eee}
+
+/* Idővonal */
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline li{padding:10px 0 10px 14px;border-left:3px solid #cfe8e0;margin-left:6px}
+.timeline .year{font-weight:800;color:var(--brand);margin-right:6px}
+
+/* Podcast */
+.podcast-card{background:#fff;border:1px dashed #c9d9d3;border-radius:12px;min-height:200px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.links{padding-left:18px}
+
+/* Kapcsolat */
+.contact-form{display:grid;gap:10px}
+.contact-form input,.contact-form textarea{padding:10px;border:1px solid #ddd;border-radius:8px;font:inherit}
+.contact-form button{justify-self:start}
+.social{margin-top:16px}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+
+/* Lábléc */
+.footer{background:#0b3b2e;color:#cfe8e0}
+.footer .container{padding:24px 16px}
+.footer a{color:#fff}
