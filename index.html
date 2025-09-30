@@ -10,7 +10,32 @@
   https://fonts.googleapis.com
   https://fonts.gstatic.com
   https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap
+/* --- MENÜ LÁTHATÓSÁG (fehér linkek, lila hover) --- */
+header{ background: rgba(12,15,20,.85); }  /* enyhén sötétebb fejléc-háttér */
+header .nav a{
+  color:#ffffff !important;
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:600;
+  opacity:1;
+}
+header .nav a:visited{ color:#ffffff !important; }
+header .nav a:hover{ color: var(--accent) !important; } /* lila (#7B3FE4) */
 
+/* --- HERO LEAD VILÁGOSÍTÁSA --- */
+.lead{
+  font-size:18px;
+  color:#ffffff !important;                     /* világos szöveg */
+  text-shadow:0 1px 3px rgba(0,0,0,.55);        /* jobb olvashatóság háttérképen is */
+  max-width:720px;
+  margin:0 auto 22px;
+}
+
+/* (Opcionális) a főcím is legyen fehér a hero-ban */
+.hero h1{ color:#ffffff; text-shadow:0 2px 8px rgba(0,0,0,.45); }
+
+/* Ha maradt valahol hashtages sor (külön blokk), tüntessük el */
+.hashtags{ display:none !important; }
   <style>
     :root{
       --bg:#0c0f14;
@@ -126,7 +151,7 @@
     <div><strong>Vincze Zsófia</strong></div>
     <nav>
       #aboutRólam</a>
-      <aervicesSzolgáltatások</a>
+      #servicesSzolgáltatások</a>
       #achievementsEredmények</a>
       #podcastPodcast</a>
       #contact<strong>Kapcsolat</strong></a>
