@@ -3,261 +3,326 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vincze Zsófia – Futóedző & Állóképességi sporttáplálkozási tanácsadó</title>
-  <meta name="description" content="Futóedzés és sporttáplálkozás tudományosan, emberközelben. Ultrás szemlélet, személyre szabott edzéstervek és frissítési stratégiák.">
-  <links.css<!-- a repo-ban már létezik -->
+  <title>Vincze Zsófia – Futóedző & Sporttáplálkozás</title>
+  <meta name="description" content="Személyre szabott futóedzésterv és állóképességi sporttáplálkozási tanácsadás. Ultrás szemlélet, tudományosan, emberközelben.">
+
+  <!-- Betűk -->
+  https://fonts.googleapis.comhttps://fonts.gstatic.com
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700ins:wght@600;700&display=swap
+
   <style>
-    /* Apró kényelem: ha nincs styles.css, ezek adnak minimális elrendezést */
-    body {font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.6; margin:0; color:#111}
-    header, nav, main, footer {max-width: 1100px; margin: 0 auto; padding: 0 16px;}
-    header {padding: 24px 16px;}
-    nav a {margin-right: 16px; text-decoration: none; color: #335;}
-    section {padding: 40px 0; border-top: 1px solid #eee;}
-    h1,h2,h3 {margin: 0 0 12px;}
-    .btn {display:inline-block; padding:10px 16px; border-radius:8px; background:#4b6cb7; color:#fff; text-decoration:none}
-    .btn.secondary {background:#777}
-    /* Kapcsolat űrlap */
-    form .row {display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    form .row .full {grid-column: 1 / -1}
-    label {display:block; font-weight:600; margin-top:12px}
-    input, textarea {width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font:inherit}
-    textarea {min-height:140px; resize:vertical}
-    .hint {font-size: 0.9rem; color:#555}
-    .success, .error {margin-top:12px; padding:10px 12px; border-radius:8px; display:none}
-    .success {background:#e8f6ee; color:#146c43; border:1px solid #c6ead6}
-    .error {background:#fde7e7; color:#842029; border:1px solid #f5c2c7}
-    .visually-hidden {position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px}
+    :root{
+      --bg:#0c0f14;
+      --card:#121521;
+      --text:#e9ecf1;
+      --muted:#a7afbd;
+      --accent:#ff7a59;       /* narancs CTA */
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text); background:linear-gradient(180deg,#0b0e13 0%,#0f1320 60%,#0b0e13 100%);
+    }
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+    /* Fejléc */
+    header{position:sticky;top:0;z-index:100;background:rgba(12,15,20,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav a{color:var(--text);text-decoration:none;margin-left:18px;opacity:.9}
+    .nav a:hover{opacity:1;color:var(--accent)}
+
+    /* Hero */
+    .hero{
+      position:relative; min-height:72vh; display:grid; place-items:center; text-align:center; overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      /* Háttérképed a repo gyökerében */
+      background:url('./keprolamhonlap.jpg') center/cover no-repeat;
+      filter:contrast(1.05) saturate(1.05) brightness(.75);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:radial-gradient(1200px 600px at 50% 10%, transparent 0 60%, rgba(12,15,20,.75) 70%), linear-gradient( to bottom, rgba(12,15,20,.2), #0c0f14 70%);
+    }
+    .hero-inner{position:relative; z-index:1; padding:64px 0}
+    .badge{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.18); border-radius:999px; font-size:12px; color:var(--muted); background:rgba(255,255,255,.04)}
+    h1{font-family:Poppins, Inter, sans-serif; font-size:40px; line-height:1.15; margin:14px 0 8px}
+    .lead{font-size:18px; color:var(--muted); max-width:720px; margin:0 auto 22px}
+    .btn{display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:600}
+    .btn-primary{background:var(--accent); color:#0b0e13}
+    .btn-outline{border:1px solid rgba(255,255,255,.18); color:var(--text)}
+
+    /* Szekciók */
+    section{padding:56px 0}
+    .section-title{font-family:Poppins, Inter, sans-serif; font-size:28px; margin:0 0 16px}
+    .section-muted{color:var(--muted); margin-top:-6px; margin-bottom:24px}
+
+    .grid{display:grid; gap:16px}
+    .cards{grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) );}
+    .card{
+      background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:18px;
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .price{font-weight:700; color:#cfe3ff; margin:4px 0 10px}
+    ul.clean{padding-left:18px; margin:0}
+    ul.clean li{margin:6px 0; color:var(--muted)}
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+
+    .two-col{grid-template-columns: 1.2fr 1fr; align-items:start}
+    @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
+
+    .kapszula{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px;
+    }
+
+    /* Rólam */
+    .about-grid{display:grid; grid-template-columns: 260px 1fr; gap:24px; align-items:start}
+    @media (max-width: 900px){ .about-grid{grid-template-columns:1fr} }
+    .avatar{
+      width:260px; aspect-ratio:1/1; object-fit:cover;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.18);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .profile{margin:0}
+
+    /* Űrlap */
+    form label{display:block; font-weight:600; margin-top:12px}
+    input, textarea{
+      width:100%; padding:12px 14px; border-radius:10px;
+      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03);
+      color:var(--text); font:inherit
+    }
+    textarea{min-height:120px; resize:vertical}
+    .form-row{display:grid; gap:12px; grid-template-columns: 1fr 1fr}
+    @media(max-width:640px){ .form-row{grid-template-columns:1fr} }
+    small.hint{color:var(--muted)}
+
+    .alert{display:none; margin-top:10px; padding:10px 12px; border-radius:10px; font-size:14px}
+    .alert.ok{background:#103c2e; border:1px solid #2dd4bf; color:#aaf1e6}
+    .alert.err{background:#3c1010; border:1px solid #ffb4b4; color:#ffdede}
+
+    footer{border-top:1px solid rgba(255,255,255,.08); padding:26px 0; text-align:center; color:var(--muted)}
   </style>
 </head>
 <body>
 
-<header id="home">
-  <h1>Vincze Zsófia – Futóedző & Állóképességi sporttáplálkozási tanácsadó</h1>
-  <nav aria-label="Fő navigáció">
-    #aboutRólam</a>
-    #servicesSzolgáltatások</a>
-    #processMenet</a>
-    #achievementsEredmények</a>
-    #podcastPodcast/Blog</a>
-    #contactKapcsolat</a>
-  </nav>
+<header>
+  <div class="container nav">
+    <div><strong>Vincze Zsófia</strong></div>
+    <nav>
+      #aboutRólam</a>
+      #servicesSzolgáltatások</a>
+      #processMenet</a>
+      #achievementsEredmények</a>
+      #podcastPodcast</a>
+      #contact<strong>Kapcsolat</strong></a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <section>
-    <h2>Futóedzés &amp; Sporttáplálkozás</h2>
-    <p>tudományosan, emberközelben</p>
-    <p>Ultrás szemlélet, személyre szabott edzésterv, frissítési stratégia. Online és személyesen.</p>
-    <p>
-      <a class="btn"tfoglalás / üzenet</a>
-      #servicesSzolgáltatások</a>
+<section class="hero" id="home" aria-label="Bevezető">
+  <div class="hero-inner container">
+    <span class="badge">Futóedzés & Állóképességi sporttáplálkozás</span>
+    <h1>Tudományosan, <span style="color:var(--accent)">emberközelben</span></h1>
+    <p class="lead">Ultrás szemlélet, személyre szabott edzéstervek és frissítési stratégiák – online és személyesen Budapesten.</p>
+    <p class="cta-row">
+      #contactIdőpontfoglalás / üzenet</a>
+      <servicesSzolgáltatások</a>
     </p>
-  </section>
+  </div>
+</section>
 
+<main class="container">
   <section id="about">
-    <h2>Rólam</h2>
-    <p>Gyerekkorom óta a sport az életem része: versenytánc, síelés és ausztriai síoktatás három nyelven. A futással párhuzamosan 2014-ben beleszerettem a terepfutásba; 2016-ban körbefutottam a Balatont, 2017-ben megnyertem az Ultra-Trail Hungary 112 km-es távját. Az edzéselmélet a kezdetektől fogva szenvedélyem, ezért tudatosan képeztem magam.</p>
-    <p>2018-ban elvégeztem az edzői iskolát (atlétika szakág), 2019–2022 között a Runner’s World magazinban rendszeres rovatom volt. 2022-ben UESCA Endurance Sports Nutrition Coach képesítést szereztem, 2023-ban a Synlab Akadémia Labordiagnosztika képzését, 2024-ben pedig az UESCA Physiological Adaptations specializációját végeztem el. Szabadidőmben aktívan versenyzem és nemrég edukációs podcastot indítottam.</p>
-    <ul>
-      <li>UESCA Nutrition Coach</li>
-      <li>Synlab Akadémia – Labordiagnosztika</li>
-      <li>Stryd Power Coach</li>
-    </ul>
-    <p><em>Futóedző terepen</em></p>
+    <h2 class="section-title">Rólam</h2>
+    <p class="section-muted">Futóedző, Stryd Power Coach, UESCA Endurance Sports Nutrition Coach</p>
+
+    <div class="about-grid">
+      <figure class="profile">
+        images/profilhonlap.png
+      </figure>
+
+      <div>
+        <div class="kapszula">
+          <p>Gyerekkoromtól a sport az életem része – a terepfutásba 2014‑ben szerettem bele. 2017‑ben megnyertem az UTH 112 km‑es távját, 2022‑ben UESCA Endurance Sports Nutrition Coach képesítést, 2024‑ben UESCA Physiological Adaptations specializációt szereztem. Edzőként az adat‑alapú, ugyanakkor emberközeli megközelítésben hiszek.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="services">
-    <h2>Szolgáltatások &amp; árak</h2>
+    <h2 class="section-title">Szolgáltatások & árak</h2>
+    <p class="section-muted">Átlátható csomagok – online és személyesen</p>
+    <div class="grid cards">
+      <article class="card">
+        <h3>Edzéstervezés</h3>
+        <div class="price">18 000 Ft / hó</div>
+        <ul class="clean">
+          <li>Heti terv (vasárnapig)</li>
+          <li>Heti visszajelzés e‑mailben</li>
+          <li>TrainingPeaks naplózás</li>
+          <li>Pulzusalapú zónák</li>
+        </ul>
+        <p class="cta-row"><a class="btn btn-primary" href="#contact
+      <article class="card">
+        <h3>Személyes / csoportos</h3>
+        <div class="price">30 000 Ft / 90 perc</div>
+        <ul class="clean">
+          <li>Futótechnika, hibajavítás</li>
+          <li>Bemelegítés, kiegészítők</li>
+          <li>Pályán vagy terepen</li>
+        </ul>
+        <p class="cta-row"><a class="btn btn kérek</a></p>
+      </article>
 
-    <h3>Edzéstervezés</h3>
-    <p><strong>18 000 Ft / hónap</strong></p>
-    <ul>
-      <li>Heti terv küldése (alapesetben vasárnapig)</li>
-      <li>Heti rövid visszajelzés e‑mailben</li>
-      <li>Célverseny és felkészülés egyeztetése</li>
-      <li>TrainingPeaks naplózás (órakompatibilis)</li>
-      <li>Pulzusalapú edzés – pánt javasolt</li>
-      <li>Bármikor lemondható, számlázás hó 10‑én</li>
-    </ul>
-    <p>#contactÉrdekel</a></p>
+      <article class="card">
+        <h3>Konzultáció: futás + frissítés</h3>
+        <div class="price">14 000 Ft / 60–90 perc</div>
+        <ul class="clean">
+          <li>Edzésalapok, tervezés</li>
+          <li>Táplálkozás & frissítés</li>
+          <li>Online vagy személyesen</li>
+        </ul>
+        <p class="cta-row">#contactFoglalás</a></p>
+      </article>
 
-    <h3>Személyes / csoportos edzés</h3>
-    <p><strong>30 000 Ft / 90 perc</strong></p>
-    <ul>
-      <li>Alapok, futótechnika, hibajavítás</li>
-      <li>Bemelegítés és kiegészítő gyakorlatok</li>
-      <li>Pályán vagy terepen</li>
-    </ul>
-    <p>#contactIdőpontot kérek</a></p>
-
-    <h3>Konzultáció: futás + frissítés</h3>
-    <p><strong>14 000 Ft / 60–90 perc</strong></p>
-    <ul>
-      <li>Személyre szabott tanácsok edzéshez</li>
-      <li>Időbeosztás és edzésalapok kialakítása</li>
-      <li>Táplálkozás, életmód, célok átbeszélése</li>
-      <li>Online vagy személyesen</li>
-    </ul>
-    <p>#contactFoglalás</a></p>
-
-    <h3>Konzultáció: frissítés</h3>
-    <p><strong>12 000 Ft</strong></p>
-    <ul>
-      <li>Verseny előtti/közbeni/utáni protokoll</li>
-      <li>Napi táplálkozás, vitaminellátottság</li>
-      <li>Egyéni frissítési stratégia kialakítása</li>
-      <li>Online vagy személyesen</li>
-    </ul>
-    <p>#contactFoglalás</a></p>
-
-    <p class="hint">* Az árak forintban értendők. A szolgáltatások részletei az alábbi „Menet” szekcióban.</p>
+      <article class="card">
+        <h3>Konzultáció: frissítés</h3>
+        <div class="price">12 000 Ft</div>
+        <ul class="clean">
+          <li>Verseny protokoll</li>
+          <li>Napi táplálkozás</li>
+          <li>Egyéni stratégia</li>
+        </ul>
+        <p class="cta-row">#contactFoglalás</a></p>
+      </article>
+    </div>
+    <p class="section-muted">* Az árak forintban értendők.</p>
   </section>
 
   <section id="process">
-    <h2>Hogyan dolgozom</h2>
-    <ul>
-      <li>Ismerkedés: rövid kérdőív + beszélgetés a célokról és az időbeosztásról.</li>
-      <li>Heti terv: a tervet vasárnapig küldöm, vagy megbeszélt időpontban.</li>
-      <li>Visszajelzés: heti pár mondatos e‑mail a közérzetről, terhelésről, esetleges panaszokról.</li>
-      <li>Adatkövetés: TrainingPeaks és pulzusalapú zónák – pánt használata ajánlott.</li>
-      <li>Regeneráció: a többi sport és terhelés beépítése a programba.</li>
-    </ul>
-    <p class="hint">Medical disclaimer: az itt található információk és tanácsok nem helyettesítik az orvosi diagnózist és kezelést. Panasz esetén fordulj szakorvoshoz.</p>
+    <h2 class="section-title">Hogyan dolgozom</h2>
+    <div class="kapszula">
+      <ol>
+        <li><strong>Ismerkedés:</strong> rövid kérdőív + célok, időbeosztás;</li>
+        <li><strong>Heti terv:</strong> átlátható, rugalmas igazításokkal;</li>
+        <li><strong>Visszajelzés:</strong> heti pár mondat a terhelésről/regenerációról;</li>
+        <li><strong>Adatkövetés:</strong> TrainingPeaks, pulzus/zónák, Stryd‑adatok.</li>
+      </ol>
+      <small class="hint">Medical disclaimer: az oldalon található információk nem helyettesítik az orvosi diagnózist és kezelést.</small>
+    </div>
   </section>
 
   <section id="achievements">
-    <h2>Mérföldkövek</h2>
-    <ul>
-      <li>2014 Terepfutás kezdete, blogolás a fejlődésről</li>
-      <li>2016 Balaton körbefutása</li>
-      <li>2017 UTH 112 km – összetett győzelem</li>
-      <li>2018 Edzői iskola (atlétika)</li>
-      <li>2019–2022 Runner’s World – rendszeres rovat</li>
-      <li>2022 UESCA Endurance Sports Nutrition Coach</li>
-      <li>2023 Synlab Akadémia – Labordiagnosztika</li>
-      <li>2024 UESCA Physiological Adaptations Specialization</li>
-    </ul>
+    <h2 class="section-title">Mérföldkövek</h2>
+    <div class="grid cards">
+      <div class="card"><strong>2017</strong> – UTH 112 km összetett győzelem</div>
+      <div class="card"><strong>2022</strong> – UESCA Nutrition Coach</div>
+      <div class="card"><strong>2023</strong> – Synlab Akadémia</div>
+      <div class="card"><strong>2024</strong> – UESCA Physiological Adaptations</div>
+    </div>
   </section>
 
-  <section id="podcast">
-    <h2>Podcast &amp; Blog</h2>
-    <p>Friss, edukációs epizódok edzéselméletről, frissítésről és ultrafutásról. Hamarosan itt is elérhető lesz az RSS és a platformlinkek.</p>
-    <ul>
-      <li>#Spotify – hamarosan</a></li>
-      <li>#Apple Podcasts – hamarosan</a></li>
-      <li>#Blog – hamarosan</a></li>
-    </ul>
-    <p class="hint">Beágyazott lejátszó helye</p>
-  </section>
-
-  <section id="contact">
-    <h2>Kapcsolat &amp; foglalás</h2>
-
-    <h3>Írj üzenetet</h3>
-    <!--
-      FONTOS: Cseréld az endpointot a saját Formspree URL-edre.
-      A JS-ben állítjuk be, ezért a <form> action itt lehet üres (JS pótolja).
-      Ha szeretnéd action attribútumba írni: action="https://formspree.io/f/IDE_JÖN_A_TE_FORM_ID"
-    -->
-    <form id="contact-form" novalidate>
-      <div class="row">
-        <div>
-          <label for="name">Név*</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="email">E‑mail*</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="full">
-          <label for="message">Üzenet*</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <!-- Honeypot (rejtett mező botok ellen) -->
-        <div class="visually-hidden" aria-hidden="true">
-          <label for="company">Cégnév (hagyd üresen)</label>
-          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
-        </div>
-
-        <div class="full">
-          <button id="submit-btn" class="btn" type="submit">Küldés</button>
-          <div id="form-success" class="success" role="status" aria-live="polite">Köszönöm, az üzeneted megérkezett! Hamarosan válaszolok.</div>
-          <div id="form-error" class="error" role="alert">Hoppá, valami hiba történt. Kérlek, próbáld újra később.</div>
-          <p class="hint">Az űrlap elküldésével hozzájárulsz, hogy kapcsolatfelvétel céljából visszajelezzek. Személyes adatokat nem adok át harmadik félnek.</p>
-        </div>
+  <section id="podcast" class="two-col grid">
+    <div>
+      <h2 class="section-title">Podcast & Blog</h2>
+      <p class="section-muted">Edukáció edzéselméletről, frissítésről és ultráról</p>
+      <div class="kapszula">
+        <p>Itt lesz az epizód‑lista / beágyazás. Amint küldesz linket (Spotify/Apple), beágyazom a lejátszót.</p>
       </div>
-    </form>
+    </div>
+    <aside class="kapszula">
+      <h3>Gyors linkek</h3>
+      <p>https://linktr.ee/Vinczezsofilinktr.ee/Vinczezsofi</a></p>
+      <p><a class="btn btn-outline" href="mailtofika@gmail.com</a></p>
+    </aside>
+  </section>
 
-    <h3>Online időpontfoglalás</h3>
-    <p>
-      https://linktr.ee/Vinczezsofilinktr.ee/Vinczezsofi</a>
-      &nbsp; &nbsp;
-      <ailto:vinczezsofika@gmail.comvinczezsofika@gmail.com</a>
-    </p>
+  <section id="contact" class="two-col grid">
+    <div>
+      <h2 class="section-title">Kapcsolat</h2>
+      <p class="section-muted">Írj üzenetet, és 24–48 órán belül válaszolok.</p>
+
+      <form id="contact-form" action="https://formspree.io/f/xjkaweqy method="POST">
+        <div class="form-row">
+          <div>
+            <label for="name">Név*</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">E‑mail*</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <label for="message">Üzenet*</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <!-- Honeypot: ha kitöltik, eldobás -->
+        <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off">
+
+        <!-- Opcionális tárgy -->
+        <input type="hidden" name="_subject" value="Új üzenet a vinczezsofi.hu-ról">
+
+        <div style="margin-top:12px">
+          <button class="btn btn-primary" id="sendBtn" type="submit">Küldés</button>
+          <div id="ok" class="alert ok" role="status">Köszönöm, az üzeneted megérkezett! Hamarosan válaszolok.</div>
+          <div id="err" class="alert err" role="alert">Hoppá, valami hiba történt. Kérlek, próbáld újra később.</div>
+          <small class="hint">Az űrlap elküldésével hozzájárulsz, hogy kapcsolatfelvétel céljából visszajelezzek. Adataidat nem adom át harmadik félnek.</small>
+        </div>
+      </form>
+    </div>
+    <aside class="kapszula">
+      <h3>Időpontfoglalás</h3>
+      <p>Amíg a beépített foglaló elkészül, a linktr.ee oldalon eléred az összes csatornát:</p>
+      <p>https://linktr.ee/VinczezsofiFoglalás / kapcsolat</a></p>
+      <p><small class="hint">Ha szeretnéd, be tudom ágyazni a Calendlyt is.</small></p>
+    </aside>
   </section>
 </main>
 
 <footer>
-  <p>© Vincze Zsófia. Minden jog fenntartva.</p>
-  <p class="hint">Az oldal statikus, sütiket nem használ. Orvosi kérdésekben mindig fordulj szakorvoshoz.</p>
+  <div class="container">
+    © Vincze Zsófia – Minden jog fenntartva · Az oldal sütiket nem használ.
+  </div>
 </footer>
 
 <script>
-  // --- KONFIG: IDE ÍRD BE A SAJÁT FORMSPREE ENDPOINTOD ---
-  // Ezt a Formspree "Integration/Overview" nézetén találod. Pl.: https://formspree.io/f/abcde
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/IDE_JÖN_A_TE_FORM_ID";
+  // Helyben siker/hiba visszajelzés (AJAX), hogy ne ugorjon el az oldal
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('sendBtn');
+  const ok   = document.getElementById('ok');
+  const err  = document.getElementById('err');
 
-  // Egyszerű kliens-oldali beküldés: helyben köszönő üzenet, nincs redirect
-  const form = document.getElementById("contact-form");
-  const submitBtn = document.getElementById("submit-btn");
-  const okBox = document.getElementById("form-success");
-  const errBox = document.getElementById("form-error");
-
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    ok.style.display = 'none'; err.style.display = 'none';
+    btn.disabled = true; btn.textContent = 'Küldés folyamatban…';
 
-    // Honeypot: ha a rejtett "company" mező tele van, ne küldjük el
-    if (form.company && form.company.value.trim() !== "") {
-      return; // csendben eldob
-    }
-
-    // Kötelező mezők ellenőrzése böngésző által
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    // Honeypot ellenőrzés
+    if (form.company && form.company.value.trim() !== '') {
+      btn.disabled = false; btn.textContent = 'Küldés';
       return;
     }
 
-    // Gomb tiltása duplakatt ellen (ajánlott gyakorlat)
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Küldés folyamatban…";
-    okBox.style.display = "none";
-    errBox.style.display = "none";
-
-    try {
-      const data = new FormData(form);
-      // Beküldés Formspree-re AJAX-szal (JSON választ kérünk)
-      const resp = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: data,
-        headers: { "Accept": "application/json" }
-      });
-
-      if (resp.ok) {
+    const data = new FormData(form);
+    try{
+      const resp = await fetch(form.action, { method: 'POST', body: data, headers: {'Accept':'application/json'} });
+      if (resp.ok){
         form.reset();
-        okBox.style.display = "block";
+        ok.style.display = 'block';
       } else {
-        // Ha reCAPTCHA szükséges / tiltva van, itt is hibát kaphatsz
-        errBox.style.display = "block";
+        err.style.display = 'block';
       }
-    } catch (err) {
-      errBox.style.display = "block";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Küldés";
+    }catch(e){
+      err.style.display = 'block';
+    }finally{
+      btn.disabled = false; btn.textContent = 'Küldés';
     }
   });
 </script>
 
 </body>
-</html>
