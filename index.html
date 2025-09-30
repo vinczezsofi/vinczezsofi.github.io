@@ -1,4 +1,4 @@
-an<!doctype html>
+<!doctype html>
 <html lang="hu">
 <head>
   <meta charset="utf-8">
@@ -6,28 +6,28 @@ an<!doctype html>
   <title>Vincze Zsófia – Futóedző és Sporttáplálkozási tanácsadás</title>
   <meta name="description" content="Személyre szabott futóedzésterv és állóképességi sporttáplálkozási tanácsadás. Egészségköztontú szemlélet, tudományosan, emberközelben.">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (helyesen) -->
   https://fonts.googleapis.com
-  https://fonts.gstatic.com
+  <ttps://fonts.gstatic.com
   https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap
 
   <style>
     :root{
       --bg:#0c0f14;
-     --card:#ffffff;    /* világos kártya-háttér */
-    --text:#1f2937;    /* sötétebb, jól olvasható törzsszöveg */
-    --muted:#5b6472;   /* visszafogott szürke alcímekhez */
-      --accent:#ff7a59;       /* narancs CTA */
+      --card:#ffffff;    /* világos kártya-háttér */
+      --text:#1f2937;    /* sötétebb, jól olvasható törzsszöveg */
+      --muted:#5b6472;   /* visszafogott szürke alcímekhez */
+      --accent:#7B3FE4;  /* MÁRKALILA CTA + címszínek */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color:var(--text);
-  /* világos, szofisztikált lila–kék–rózsaszín háttér */
-  background:linear-gradient(180deg,#f6edff 0%,#eaf3ff 50%,#ffeaf3 100%);
-}
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      /* világos, szofisztikált lila–kék–rózsaszín háttér */
+      background:linear-gradient(180deg,#f6edff 0%,#eaf3ff 50%,#ffeaf3 100%);
+    }
     .container{max-width:1080px;margin:0 auto;padding:0 20px}
 
     /* Fejléc */
@@ -53,7 +53,13 @@ an<!doctype html>
     }
     .hero-inner{position:relative; z-index:1; padding:64px 0}
     .badge{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.18); border-radius:999px; font-size:12px; color:var(--muted); background:rgba(255,255,255,.04)}
-    h1{font-family:Poppins, Inter, sans-serif; font-size:40px; line-height:1.15; margin:14px 0 8px}
+    h1{
+      font-family:Poppins, Inter, sans-serif;
+      font-size:40px;
+      line-height:1.15;
+      margin:14px 0 8px;
+      color: var(--accent); /* ← lila cím */
+    }
     .lead{font-size:18px; color:var(--muted); max-width:720px; margin:0 auto 22px}
     .btn{display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:600}
     .btn-primary{background:var(--accent); color:#0b0e13}
@@ -81,6 +87,7 @@ an<!doctype html>
     .kapszula{
       background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px;
     }
+  </style>
 
     /* Rólam */
     .about-grid{display:grid; grid-template-columns: 260px 1fr; gap:24px; align-items:start}
