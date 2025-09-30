@@ -290,46 +290,39 @@ Szabadidőmben aktívan versenyzem, edzem, nemrég egy edukációs podcastot ind
   </aside>
 
 
-  <section id="contact" class="two-col grid">
-    <div>
-      <h2 class="section-title">Kapcsolat</h2>
-      <p class="section-muted">Írj üzenetet, és 24–48 órán belül válaszolok.</p>
+<section id="contact" class="two-col grid">
+  <div>
+    <h2 class="section-title">Kapcsolat</h2>
+    <p class="section-muted">Írj üzenetet, és 24–48 órán belül válaszolok.</p>
 
-      <form id="contact-form" action="https://formspree.io/" method="POST">
-        <div class="form-row">
-          <div>
-            <label for="name">Név*</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div>
-            <label for="email">E‑mail*</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          </div>
+    <form id="contact-form" action="https://formspree.io/f/xjkaweqy" method="POST        <label for="name">Név*</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
         </div>
-        <label for="message">Üzenet*</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <!-- Honeypot: ha kitöltik, eldobás -->
-        <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off">
-
-        <!-- Opcionális tárgy -->
-        <input type="hidden" name="_subject" value="Új üzenet a vinczezsofi.hu-ról">
-
-        <div style="margin-top:12px">
-          <button class="btn btn-primary" id="sendBtn" type="submit">Küldés</button>
-          <div id="ok" class="alert ok" role="status">Köszönöm, az üzeneted megérkezett! Hamarosan válaszolok.</div>
-          <div id="err" class="alert err" role="alert">Hoppá, valami hiba történt. Kérlek, próbáld újra később.</div>
-          <small class="hint">Az űrlap elküldésével hozzájárulsz, hogy kapcsolatfelvétel céljából visszajelezzek. Adataidat nem adom át harmadik félnek.</small>
+        <div>
+          <label for="email">E‑mail*</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
         </div>
-      </form>
-    </div>
-    <aside class="kapszula">
-      <h3>Időpontfoglalás</h3>
-      <p>Amíg a beépített foglaló elkészül, a linktr.ee oldalon eléred az összes csatornát:</p>
-      <p><a class="btn btn-outline" href="https://linktr.ee/Vinczezsofi" target="_blank" rel="noopener">Foglalás / kapcsolat</a></p>
-      <p><small class="hint">Ha szeretnéd, be tudom ágyazni a Calendlyt is.</small></p>
-    </aside>
-  </section>
+      </div>
+
+      <label for="message">Üzenet*</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <!-- Honeypot: ha kitöltik, eldobás -->
+      <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off">
+
+      <!-- Opcionális tárgy -->
+      <input type="hidden" name="_subject" value="Új üzenet a vinczezsofi.hu-ról">
+
+      <div style="margin-top:12px">
+        <button class="btn btn-primary" id="sendBtn" type="submit">Küldés</button>
+        <div id="ok" class="alert ok" role="status">Köszönöm, az üzeneted megérkezett! Hamarosan válaszolok.</div>
+        <div id="err" class="alert err" role="alert">Hoppá, valami hiba történt. Kérlek, próbáld újra később.</div>
+        <small class="hint">Az űrlap elküldésével hozzájárulsz, hogy kapcsolatfelvétel céljából visszajelezzek. Adataidat nem adom át harmadik félnek.</small>
+      </div>
+    </form>
+  </div>
+
+
 </main>
 
 <footer>
