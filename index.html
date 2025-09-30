@@ -317,30 +317,27 @@
         style="border-radius:12px"
         src="https://open.spotify.com/embed/show/1bswdNYewKea9cSVJoHS89?utm_source=generator&theme=0"
 
+        <!-- Gyors linkek blokk -->
+<aside class="kapszula">
+  <h3>Gyors linkek</h3>
+  <p class="cta-row" style="margin-top:0">
+    <a class="btn btn-outline" href="https://linktr.ee/Vinczezsofi" target="_blank" rel="noopener">
+      Linktree
+    </a>
+    mailto:vinczezsofika@gmail.com
+      Email
+    </a>
+  </p>
+</aside>
 
-    
-  <aside class="kapszula">
-    <h3>Gyors linkek</h3>
-    <p class="cta-row" style="margin-top:0">
-      <a class="btn btn-outline" href="https://linktr.ee/Vinczezsofi" target="_blank" rel="noopener">
-        Linktree
-      </a>
-      mailto:vinczezsofika@gmail.com
-        Email
-      </a>
-    </p>
-  </aside>
-</section>
-
- <!-- ===== KAPCSOLAT ===== -->
+<!-- ===== KAPCSOLAT ===== -->
 <section id="contact" class="two-col grid">
   <div>
     <h2 class="section-title">Kapcsolat</h2>
     <p class="section-muted">Írj e‑mailt, és 24–48 órán belül válaszolok.</p>
 
     <div class="cta-row" style="margin: 8px 0 16px">
-      <a class="btn btn-primary"
-         href="mailto:vinczezsofika@gmail.com"
+      mailto:vinczezsofika@gmail.com
         Írj e‑mailt
       </a>
       mailto:vinczezsofika@gmail.com
@@ -354,62 +351,13 @@
     </small>
   </div>
 
-        <small class="hint">
-          Az email elküldésével hozzájárulsz, hogy kapcsolatfelvétel céljából visszajelezzek. Adataidat nem adom át harmadik félnek.
-        </small>
-      </div>
-
-      <aside class="kapszula">
-        <h3>Időpontfoglalás</h3>
-        <p>Amíg a beépített foglaló elkészül, a Linktree oldalon eléred az összes csatornát:</p>
-        <p><a href="https://linktr.ee/Vinczezsofi" target="_blank" rel="noopener">https://linktr.ee/Vinczezsofi</a></p>
-  
-      </aside>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      © Vincze Zsófia – Minden jog fenntartva · Az oldal sütiket nem használ.
-    </div>
-  </footer>
-
-  <script>
-    // Helyben siker/hiba visszajelzés (AJAX), hogy ne ugorjon el az oldal
-    const form = document.getElementById('contact-form');
-    const btn  = document.getElementById('sendBtn');
-    const ok   = document.getElementById('ok');
-    const err  = document.getElementById('err');
-
-    if (form){
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        ok.style.display = 'none'; err.style.display = 'none';
-        btn.disabled = true; btn.textContent = 'Küldés folyamatban…';
-
-        // Honeypot ellenőrzés
-        if (form.company && form.company.value.trim() !== '') {
-          btn.disabled = false; btn.textContent = 'Küldés';
-          return;
-        }
-
-        const data = new FormData(form);
-        try{
-          const resp = await fetch(form.action, { method: 'POST', body: data, headers: {'Accept':'application/json'} });
-          if (resp.ok){
-            form.reset();
-            ok.style.display = 'block';
-          } else {
-            err.style.display = 'block';
-          }
-        }catch(e){
-          err.style.display = 'block';
-        }finally{
-          btn.disabled = false; btn.textContent = 'Küldés';
-        }
-      });
-    }
-  </script>
-</body>
-</html>
+  <aside class="kapszula">
+    <h3>Időpontfoglalás</h3>
+    <p>Amíg a beépített foglaló elkészül, a Linktree oldalon eléred az összes csatornát:</p>
+    <p>
+      <a href="https://linktr.ee/Vinczezsofi" target="_blank" rel="noopener">
+        https://linktr.ee/Vinczezsofi
+      </a>
+    </p>
+  </aside>
+</section>
